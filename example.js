@@ -1,8 +1,9 @@
-var myQ = require("./myQ.js").myQ;
+var myQLib = require("./myQ.js");
+var myQ = myQLib.myQ('<userid>','<password>');
 var Promise = require('es6-promise').Promise;
 
 
-myQ.getDevices('<userid>','<password>')
+myQ.getDevices()
 	.then(function(respObj){
 					console.log(respObj);
 				},
@@ -12,14 +13,14 @@ myQ.getDevices('<userid>','<password>')
 	);
 
 
-myQ.getDoorStatus('<userid>','<password>','<deviceId>')
+myQ.getDoorStatus('<deviceId>')
 	.then(function(state){
 		 console.log("Current State:"+state);
 	});
 
 
 /*
-myQ.openDoor('<userid>','<password>','<deviceId>')
+myQ.openDoor('<deviceId>')
 	.then(function(state){
 					console.log("Sucessfully completed!"+state)
 			  },
@@ -30,7 +31,7 @@ myQ.openDoor('<userid>','<password>','<deviceId>')
 
 */
 /*
-myQ.closeDoor('<userid>','<password>','<deviceId>')
+myQ.closeDoor('<deviceId>')
 	.then(function(state){
 					console.log("Sucessfully completed!"+state)
 			  },
@@ -39,4 +40,3 @@ myQ.closeDoor('<userid>','<password>','<deviceId>')
    			}
 	 );
 */
-
